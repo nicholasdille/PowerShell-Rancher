@@ -1,4 +1,3 @@
-# 0.1.5
+# 0.1.8
 
-- Initial release
-- Exploration of Rancher API
+- Fixed release to GitHub
