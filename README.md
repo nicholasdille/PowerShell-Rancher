@@ -4,8 +4,4 @@
 
 # Introduction
 
-XXX
-
-# TODO
-
-XXX
+Cndlets for Rancher
