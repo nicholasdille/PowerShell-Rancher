@@ -4,4 +4,4 @@
 
 # Introduction
 
-Cndlets for Rancher
+Cmdlets for [Rancher](http://rancher.com/rancher/)
