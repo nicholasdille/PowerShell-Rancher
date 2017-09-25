@@ -1,4 +1,9 @@
 function Get-RancherHost {
+    [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
+        "PSUseDeclaredVarsMoreThanAssignments", 
+        "", 
+        Justification = "Variable is used in process and end blocks"
+    )]
     [CmdletBinding()]
     param(
         [Parameter()]

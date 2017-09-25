@@ -1,5 +1,5 @@
 ﻿function Set-RancherServer {
-    [CmdletBinding()]
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact='Low')]
     param(
         [Parameter(Mandatory)]
         [ValidateNotNullOrEmpty()]
@@ -16,8 +16,21 @@
         [string]
         $SecretKey
     )
+    
+    begin {
+        if (-not $PSBoundParameters.ContainsKey('Confirm')) {
+            $ConfirmPreference = $PSCmdlet.SessionState.PSVariable.GetValue('ConfirmPreference')
+        }
+        if (-not $PSBoundParameters.ContainsKey('WhatIf')) {
+            $WhatIfPreference = $PSCmdlet.SessionState.PSVariable.GetValue('WhatIfPreference')
+        }
+    }
 
-    $script:RancherServer    = $Server
-    $script:RancherAccessKey = $AccessKey
-    $script:RancherSecretKey = $SecretKey
+    process {
+        if ($Force -or $PSCmdlet.ShouldProcess("ShouldProcess?")) {
+            $script:RancherServer    = $Server
+            $script:RancherAccessKey = $AccessKey
+            $script:RancherSecretKey = $SecretKey
+        }
+    }
 }
