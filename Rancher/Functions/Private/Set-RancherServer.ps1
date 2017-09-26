@@ -27,7 +27,7 @@
     }
 
     process {
-        if ($Force -or $PSCmdlet.ShouldProcess("ShouldProcess?")) {
+        if ($Force -or $PSCmdlet.ShouldProcess("Update credentials to use server '$Server' with access key '$AccessKey'?")) {
             $script:RancherServer    = $Server
             $script:RancherAccessKey = $AccessKey
             $script:RancherSecretKey = $SecretKey
