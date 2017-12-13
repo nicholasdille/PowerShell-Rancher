@@ -1,3 +1,7 @@
+# 0.1.19
+
+- Fixed export of `Set-RancherServer`   
+
 # 0.1.18
 
 - Updated build tools
