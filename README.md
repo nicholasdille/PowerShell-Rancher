@@ -5,3 +5,24 @@
 # Introduction
 
 Cmdlets for [Rancher](http://rancher.com/rancher/)
+
+## Usage
+
+Please install the dependencies:
+
+```powershell
+Install-Module -Name Helpers,WebRequest,Rancher -AllowClobber
+```
+
+Then load the modules and configure credentials:
+
+```powershell
+Import-Module -Name Helpers,WebRequest,Rancher
+Set-RancherServer -Server your_server_here.com -AccessKey your_access_key_here -SecretKey your_secret_key_here
+```
+
+And then - finally - start executing cmdlets:
+
+```powershell
+Get-RancherHosts
+```
