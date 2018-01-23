@@ -24,5 +24,5 @@ Set-RancherServer -Server your_server_here.com -AccessKey your_access_key_here -
 And then - finally - start executing cmdlets:
 
 ```powershell
-Get-RancherHosts
+Get-Command -Module Rancher
 ```
