@@ -25,6 +25,8 @@ function Invoke-RancherApi {
     }
 
     $Rancher = Get-RancherServer
+    $AuthString = Get-BasicAuthentication -User $Rancher.AccessKey -Token $Rancher.SecretKey
+    $Headers.Add('Authorization', "Basic $AuthString")
 
     $Next = "$($Rancher.Server)/v2-beta/$Path"
     $Data = @()
@@ -32,7 +34,7 @@ function Invoke-RancherApi {
     $ConfiguredProtocols = [System.Net.ServicePointManager]::SecurityProtocol
     [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]'Tls11,Tls12'
     while ($Next) {
-        $Response = Invoke-AuthenticatedWebRequest -Uri $Next -Method $Method -User $Rancher.AccessKey -Token $Rancher.SecretKey -Headers $Headers
+        $Response = Invoke-WebRequest -Uri $Next -Method $Method -Headers $Headers
 
         $Content = $Response.Content.Replace('"HTTP_PROXY="', '"http_proxy_uppercase="').Replace('"HTTPS_PROXY="', '"https_proxy_uppercase="').Replace('"NO_PROXY="', '"no_proxy_uppercase="')
         $Content = $Response.Content.Replace('"HTTP_PROXY"', '"http_proxy_uppercase"').Replace('"HTTPS_PROXY"', '"https_proxy_uppercase"').Replace('"NO_PROXY"', '"no_proxy_uppercase"')
