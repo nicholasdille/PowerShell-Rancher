@@ -11,12 +11,12 @@
         [string]
         $AccessKey
         ,
-        [Parameter(Mandatory)]
+        [Parameter()]
         [ValidateNotNullOrEmpty()]
         [string]
-        $SecretKey
+        $SecretKey = (Read-Host -Prompt 'Password' -AsSecureString | Get-PlaintextFromSecureString)
     )
-    
+
     begin {
         if (-not $PSBoundParameters.ContainsKey('Confirm')) {
             $ConfirmPreference = $PSCmdlet.SessionState.PSVariable.GetValue('ConfirmPreference')
