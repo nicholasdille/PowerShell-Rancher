@@ -1,5 +1,4 @@
 ﻿#requires -Version 4
-#requires -Modules WebRequest
 
 function Invoke-RancherApi {
     [CmdletBinding()]
