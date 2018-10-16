@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.2.1.29
+
+- Removed offending requires statement
+
 ## 0.2.1.28
 
 - Test updated build tools
