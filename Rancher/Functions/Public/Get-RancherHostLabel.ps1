@@ -28,10 +28,8 @@ function Get-RancherHostLabel {
         $Hosts
         return
     }
-    
-    $Hosts | ForEach-Object {
-        $Host = $_
 
+    $Hosts | ForEach-Object {
         $_.labels `
             | Add-Member -MemberType NoteProperty -Name 'Environment' -Value $_.accountId -PassThru `
             | Add-Member -MemberType NoteProperty -Name 'Host'        -Value $_.id -PassThru
