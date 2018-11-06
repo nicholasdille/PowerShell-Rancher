@@ -28,24 +28,22 @@ function Get-RancherContainer {
 
     $Containers = Invoke-RancherApi -Path '/containers'
     $Containers = $Containers | Where-Object { $_.id -like $Id -and $_.accountId -like $EnvironmentId -and $_.serviceIDs -like $ServiceID }
-    
+
     if ($Raw) {
         $Containers
         return
     }
-    
+
     $Containers | ForEach-Object {
         [pscustomobject]@{
             Name            = $_.name
             Environment     = $_.accountId
             Services        = $_.serviceIDs
             Id              = $_.id
-            imageUuid       = $_.imageUuid
             State           = $_.state
             HostID          = $_.HostID
             Uuid            = $_.uuid
-            priIpAddress    = $_.primaryIpAddress
-            privileged      = $_.privileged
+            IpAddress       = $_.primaryIpAddress
             PSTypeName      = 'RancherContainer'
         }
     }
