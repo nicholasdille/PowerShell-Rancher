@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.3.0
+
+- Added `Get-RancherContainer`
+
 ## 0.2.1.29
 
 - Removed offending requires statement
