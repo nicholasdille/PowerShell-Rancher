@@ -4,6 +4,8 @@
 
 # Introduction
 
+*This repository is archived because I have stopped working with Rancher and do not feel able to maintain this PowerShell module.*
+
 Cmdlets for [Rancher](http://rancher.com/rancher/)
 
 ## Usage
